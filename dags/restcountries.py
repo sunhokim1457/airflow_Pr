@@ -58,9 +58,9 @@ with DAG(
     start_date = datetime(2023,6,7),
     catchup=False,
     tags=['API'],
-    schedule = '30 6 * * 6' # 매일 10시 정각마다
+    schedule = '30 6 * * 6' # 토요일 오전 6시 30분마다
 ) as dag:
 
     url = "https://restcountries.com/v3/all"
-    country_list = get_counrty_list(url) # 애플 주식의 심볼 AAPL
-    load("sunhokim_public", "country_info", country_list) # 순서대로 스키마이름, 테이블이름, transform 함수의 결과
+    country_list = get_counrty_list(url) # restcounty의 url
+    load("sunhokim_public", "country_info", country_list)
